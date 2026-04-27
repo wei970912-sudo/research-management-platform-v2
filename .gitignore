@@ -1,0 +1,32 @@
+﻿# Dependencies
+frontend/node_modules/
+.m2/
+
+# Build outputs
+frontend/dist/
+backend/target/
+*.jar
+
+# IDE/editor
+.idea/
+.vscode/
+
+# Runtime and generated files
+logs/
+*.log
+upload/
+backup/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.properties
+
+# Deployed frontend bundle
+frontend/你的nginx站点目录/
+
+# Local database and uploaded attachments
+backend/data/
+backend/uploads/

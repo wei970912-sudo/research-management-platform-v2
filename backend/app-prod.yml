@@ -1,0 +1,60 @@
+server:
+  port: 8080
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:research_management_platform}?useUnicode=true&characterEncoding=utf8&connectionCollation=utf8mb4_0900_ai_ci&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true&useSSL=false}
+    driver-class-name: ${DB_DRIVER:com.mysql.cj.jdbc.Driver}
+    username: ${DB_USERNAME:rmp_app}
+    password: ${DB_PASSWORD:rmp_app_ChangeMe123!}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: ${APP_JPA_DDL_AUTO:validate}
+  sql:
+    init:
+      mode: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+assistant:
+  openai-compatible:
+    enabled: true
+    base-url: ${ASSISTANT_BASE_URL:http://YOUR_OLLAMA_HOST:11434/v1}
+    api-key: ${ASSISTANT_API_KEY:ollama}
+    model: ${ASSISTANT_MODEL:gemma4:e2b}
+    system-prompt: ${ASSISTANT_SYSTEM_PROMPT:You are the built-in assistant for the research management platform. Always answer in Chinese and use the unified database context to provide structured and actionable advice.}
+
+app:
+  auth:
+    bootstrap:
+      admin:
+        username: admin
+        password: Admin@123456
+        display-name: System Admin
+      viewer:
+        username: viewer
+        password: Viewer@123456
+        display-name: Read Only User
+  storage:
+    meeting-upload-dir: ./uploads/meetings
+  migration:
+    enabled: ${APP_MIGRATION_ENABLED:false}
+    backup-root: ${APP_MIGRATION_BACKUP_ROOT:D:/deploy/research-management-platform-v2/backup}
+    source-h2-file-base-path: ${APP_MIGRATION_SOURCE_H2_FILE_BASE_PATH:D:/deploy/research-management-platform-v2/backend/data/research-management-platform}
+    source-h2-url: ${APP_MIGRATION_SOURCE_H2_URL:}
+    source-h2-username: ${APP_MIGRATION_SOURCE_H2_USERNAME:sa}
+    source-h2-password: ${APP_MIGRATION_SOURCE_H2_PASSWORD:}
+  cors:
+    allowed-origins:
+      - http://8.136.155.97
+      - https://8.136.155.97
