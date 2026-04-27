@@ -1164,7 +1164,7 @@ function createLocalId(prefix, seed) {
 </script>
 
 <style scoped>
-.schedule-page{min-height:100vh;padding:28px;background:#f5f7fb;color:#18201d}
+.schedule-page{min-height:100vh;padding:clamp(18px,3vw,28px);background:#f5f7fb;color:#18201d}
 .page-header,.header-actions,.toolbar-actions,.tabs,.panel-header,.control-line-header,.control-point-header,.inline-actions,.form-head,.grid-two,.gantt-head{display:flex;gap:12px}
 .page-header,.panel-header,.control-line-header,.control-point-header,.form-head,.gantt-head{justify-content:space-between;align-items:flex-start}
 .page-header{margin-bottom:20px}
@@ -1177,7 +1177,7 @@ h3{font-size:18px}
 h4{font-size:16px}
 .subtext{margin-top:8px;color:#63706a}
 .toolbar-card,.panel,.stat-card,.gantt-card{background:#fff;border:1px solid #dfe6e2;border-radius:12px;box-shadow:0 12px 28px rgba(31,55,48,.08)}
-.toolbar-card{display:grid;grid-template-columns:240px minmax(240px,1fr) auto;gap:14px;align-items:end;padding:18px;margin-bottom:18px}
+.toolbar-card{display:grid;grid-template-columns:minmax(180px,240px) minmax(220px,1fr) auto;gap:14px;align-items:end;padding:18px;margin-bottom:18px}
 .field{display:grid;gap:8px;color:#63706a;font-size:13px;font-weight:700}
 .field input,.field select,.field textarea{width:100%;border:1px solid #dfe6e2;border-radius:10px;padding:11px 12px;background:#fff}
 .compact{max-width:240px}
@@ -1245,7 +1245,7 @@ h4{font-size:16px}
 .record-form{display:grid;gap:14px}
 .form-error{margin:0;color:#b53232;font-size:13px}
 .checkbox-field{display:flex;align-items:center;justify-content:space-between}
-@media (max-width:1100px){
+@media (max-width:1280px){
   .toolbar-card{grid-template-columns:1fr}
   .stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .gantt-scale{margin-left:0}

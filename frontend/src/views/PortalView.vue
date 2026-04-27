@@ -496,9 +496,9 @@ function formatDate(dateText) {
 <style scoped>
 .dashboard-page{min-height:100vh;background:#f7f8fb}
 .topbar,.section-head,.panel-head,.form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-.topbar{padding:28px 40px 20px;background:#fff;border-bottom:1px solid #dfe6e2}
+.topbar{padding:28px clamp(18px,3vw,40px) 20px;background:#fff;border-bottom:1px solid #dfe6e2}
 .top-actions,.calendar-actions,.event-panel-head,.project-actions,.assistant-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.dashboard{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.85fr);gap:24px;padding:24px 40px 40px}
+.dashboard{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,clamp(300px,30vw,430px));gap:clamp(16px,2vw,24px);padding:24px clamp(18px,3vw,40px) 40px}
 .module-view,.panel{background:#fff;border:1px solid #dfe6e2;border-radius:8px;box-shadow:0 16px 36px rgba(31,55,48,.12)}
 .module-view{min-height:calc(100vh - 132px);overflow:hidden}
 .section-head{align-items:end;padding:22px;border-bottom:1px solid #dfe6e2}
@@ -510,7 +510,7 @@ function formatDate(dateText) {
 .module-icon{display:grid;place-items:center;width:46px;height:46px;border-radius:8px;background:#f4f7f5;color:#155d43;font-size:24px;font-weight:800}
 .module-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:auto}
 .module-path{color:#63706a;font-size:13px}
-.assistant-strip{display:grid;grid-template-columns:minmax(0,.85fr) minmax(360px,1.15fr);gap:18px;padding:0 22px 22px}
+.assistant-strip{display:grid;grid-template-columns:minmax(0,.85fr) minmax(280px,1.15fr);gap:18px;padding:0 22px 22px}
 .assistant-copy,.assistant-entry{padding:18px;border:1px solid #dfe6e2;border-radius:8px;background:#fff}
 .assistant-copy p:last-child{margin-top:10px;color:#63706a;line-height:1.7}
 .assistant-field{display:grid;gap:8px;margin-bottom:12px;color:#63706a;font-size:13px;font-weight:700}
@@ -551,6 +551,6 @@ h1{margin-top:4px;font-size:30px}
 h2{font-size:22px}
 h3{font-size:16px}
 .eyebrow{color:#1f7a5a;font-size:12px;font-weight:700;text-transform:uppercase}
-@media (max-width:1100px){.dashboard{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.module-view{min-height:auto}}
+@media (max-width:1280px){.dashboard{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.module-view{min-height:auto}}
 @media (max-width:720px){.topbar,.section-head,.panel-head,.form-head,.top-actions,.assistant-actions{align-items:stretch;flex-direction:column}.module-grid,.assistant-strip{grid-template-columns:1fr}h1{font-size:26px}}
 </style>

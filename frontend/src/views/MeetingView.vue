@@ -269,14 +269,16 @@ const load = async () => {
 };
 
 const visibleMeetings = computed(() =>
-  meetings.value.filter((item) => {
-    const matchedProject = projectFilter.value === "all" || item.projectName === projectFilter.value;
-    const matchedType = typeFilter.value === "all" || item.type === typeFilter.value;
-    const matchedQuery =
-      !query.value ||
-      [item.projectName, item.topic, item.host, item.location, item.attendees, item.summary].join(" ").includes(query.value);
-    return matchedProject && matchedType && matchedQuery;
-  })
+  meetings.value
+    .filter((item) => {
+      const matchedProject = projectFilter.value === "all" || item.projectName === projectFilter.value;
+      const matchedType = typeFilter.value === "all" || item.type === typeFilter.value;
+      const matchedQuery =
+        !query.value ||
+        [item.projectName, item.topic, item.host, item.location, item.attendees, item.summary].join(" ").includes(query.value);
+      return matchedProject && matchedType && matchedQuery;
+    })
+    .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")))
 );
 
 const projectOptions = computed(() => [...new Set(meetings.value.map((item) => item.projectName))]);
@@ -386,8 +388,8 @@ onMounted(load);
 <style scoped>
 .meeting-page{min-height:100vh;background:#f7f8fb}
 .topbar,.section-head,.detail-header,.form-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-.topbar{padding:28px 40px 20px;background:#fff;border-bottom:1px solid #dfe6e2}
-.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(360px,.65fr);gap:24px;padding:24px 40px 40px}
+.topbar{padding:28px clamp(18px,3vw,40px) 20px;background:#fff;border-bottom:1px solid #dfe6e2}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,clamp(300px,28vw,420px));gap:clamp(16px,2vw,24px);padding:24px clamp(18px,3vw,40px) 40px}
 .summary-view,.panel{background:#fff;border:1px solid #dfe6e2;border-radius:8px;box-shadow:0 16px 36px rgba(31,55,48,.12)}
 .summary-view{overflow:hidden}
 .section-head{align-items:end;padding:22px;border-bottom:1px solid #dfe6e2}
@@ -430,6 +432,6 @@ h1{margin-top:4px;font-size:30px}
 h2{font-size:22px}
 h3{font-size:16px}
 .eyebrow{color:#1f7a5a;font-size:12px;font-weight:700;text-transform:uppercase}
-@media (max-width:980px){.layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.panel{position:static}}
+@media (max-width:1280px){.layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.panel{position:static}}
 @media (max-width:640px){.topbar,.section-head,.detail-header,.form-head,.summary-tools,.filters,.actions{align-items:stretch;flex-direction:column}h1{font-size:26px}}
 </style>

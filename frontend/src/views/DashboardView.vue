@@ -495,11 +495,11 @@ function getContractStatusClass(status) {
 <style scoped>
 :root{color-scheme:light}
 .overview-page{min-height:100vh;background:#f7f8fb;color:#18201d}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 40px 20px;background:#fff;border-bottom:1px solid #dfe6e2}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px clamp(18px,3vw,40px) 20px;background:#fff;border-bottom:1px solid #dfe6e2}
 .top-actions,.block-head,.panel-head,.form-head,.item-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .nav-link{text-decoration:none}
 .eyebrow{color:#1f7a5a;font-size:12px;font-weight:700;text-transform:uppercase}
-.overview-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);gap:24px;padding:24px 40px 40px}
+.overview-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,clamp(300px,28vw,420px));gap:clamp(16px,2vw,24px);padding:24px clamp(18px,3vw,40px) 40px}
 .summary-view,.panel{background:#fff;border:1px solid #dfe6e2;border-radius:8px;box-shadow:0 16px 36px rgba(31,55,48,.12)}
 .summary-view{min-height:calc(100vh - 132px);overflow:hidden}
 .section-head,.block-head,.panel-head,.form-head{justify-content:space-between;align-items:flex-start;gap:18px}
@@ -562,6 +562,6 @@ h1,h2,h3,p{margin:0}
 h1{margin-top:4px;font-size:30px}
 h2{font-size:22px}
 h3{font-size:16px}
-@media (max-width:1120px){.overview-layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}}
+@media (max-width:1280px){.overview-layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.summary-view{min-height:auto}}
 @media (max-width:760px){.topbar,.section-head,.block-head,.panel-head,.form-head,.top-actions{align-items:stretch;flex-direction:column}.stat-grid,.indicator-grid{grid-template-columns:1fr}.search-box{min-width:0}h1{font-size:26px}}
 </style>

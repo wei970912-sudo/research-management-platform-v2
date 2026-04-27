@@ -148,6 +148,8 @@ public class UnifiedDataStore {
     public List<MeetingSummary> listMeetings() {
         return meetingRepository.findAll().stream()
                 .map(foundationMapper::toRecord)
+                .sorted(Comparator.comparing(ResearchMeetingRecord::date).reversed()
+                        .thenComparing(ResearchMeetingRecord::topic))
                 .map(this::toMeetingSummary)
                 .toList();
     }

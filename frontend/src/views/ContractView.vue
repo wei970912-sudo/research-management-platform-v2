@@ -511,9 +511,9 @@ onMounted(load);
 <style scoped>
 .contract-page{min-height:100vh;background:#f7f8fb}
 .topbar,.section-head,.detail-header,.form-head,.sub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-.topbar{padding:28px 40px 20px;background:#fff;border-bottom:1px solid #dfe6e2}
+.topbar{padding:28px clamp(18px,3vw,40px) 20px;background:#fff;border-bottom:1px solid #dfe6e2}
 .top-actions,.summary-tools,.actions{display:flex;gap:10px;flex-wrap:wrap}
-.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,.65fr);gap:24px;padding:24px 40px 40px}
+.layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,clamp(300px,28vw,420px));gap:clamp(16px,2vw,24px);padding:24px clamp(18px,3vw,40px) 40px}
 .summary-view,.panel{background:#fff;border:1px solid #dfe6e2;border-radius:8px;box-shadow:0 16px 36px rgba(31,55,48,.12)}
 .summary-view{overflow:hidden}
 .section-head{align-items:end;padding:22px;border-bottom:1px solid #dfe6e2}
@@ -563,6 +563,6 @@ dd{margin:7px 0 0;overflow-wrap:anywhere}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .danger{border-radius:8px;padding:9px 13px;background:#fff;border:1px solid #e6c4c4;color:#b53232}
 .full{width:100%}
-@media (max-width:1120px){.layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.panel{position:static;max-height:none}}
+@media (max-width:1280px){.layout{grid-template-columns:1fr;padding:18px}.topbar{padding:22px 18px 16px}.panel{position:static;max-height:none}}
 @media (max-width:760px){.topbar,.section-head,.detail-header,.form-head,.summary-tools,.top-actions,.actions,.two-col,.sub-head{align-items:stretch;flex-direction:column}.stat-grid{grid-template-columns:1fr}h1{font-size:26px}}
 </style>
